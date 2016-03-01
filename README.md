@@ -1,5 +1,7 @@
 # Spark Stemming
 
+[![Build Status](https://travis-ci.org/master/spark-stemming.svg?branch=master)](https://travis-ci.org/master/spark-stemming)
+
 [Snowball](http://snowballstem.org/) is a small string processing language
 designed for creating stemming algorithms for use in Information Retrieval.
 This package allows to use it as a part of [Spark ML
