@@ -19,8 +19,8 @@ class Stemmer(override val uid: String) extends UnaryTransformer[String, String,
 
   override protected def createTransformFunc: String => String = {
     val stemClass = Class.forName("org.tartarus.snowball.ext." + $(language).toLowerCase + "Stemmer")
+    val stemmer = stemClass.newInstance.asInstanceOf[SnowballStemmer]
     originStr => try {
-      val stemmer = stemClass.newInstance.asInstanceOf[SnowballStemmer]
       stemmer.setCurrent(originStr)
       stemmer.stem()
       stemmer.getCurrent
