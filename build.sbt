@@ -1,18 +1,14 @@
 name := "spark-stemming"
 
-version := "0.1.0"
-
 organization := "com.github.master"
 
 spName := "master/spark-stemming"
 
-scalaVersion := "2.10.5"
-
-crossScalaVersions := Seq("2.10.5", "2.11.7")
+version := "0.1.1"
 
 sparkVersion := "1.6.0"
 
-spName := "com.github.master/spark-stemming"
+scalaVersion := "2.10.5"
 
 spShortDescription := "Spark MLlib wrapper around Snowball stemming"
 
@@ -24,6 +20,8 @@ spDescription := """Snowball is a small string processing language
 licenses := Seq("BSD 2-Clause" -> url("https://opensource.org/licenses/BSD-2-Clause"))
 
 sparkComponents ++= Seq("mllib", "sql")
+
+parallelExecution := false
 
 credentials += Credentials(Path.userHome / ".sbt" / "sparkpkg-credentials")
 

@@ -12,23 +12,23 @@ Pipeline](https://spark.apache.org/docs/latest/ml-guide.html) API.
 Link against this library using SBT:
 
 ```
-libraryDependencies += "com.github.master" %% "spark-stemming" % "0.1.0"
+libraryDependencies += "master" %% "spark-stemming" % "0.1.1"
 ```
 
 Using Maven:
 
 ```xml
 <dependency>
-    <groupId>com.github.master</groupId>
+    <groupId>master</groupId>
     <artifactId>spark-stemming_2.10</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
 Or include it when starting the Spark shell:
 
 ```
-$ bin/spark-shell --packages com.github.master:spark-stemming_2.10:0.1.0
+$ bin/spark-shell --packages master:spark-stemming_2.10:0.1.1
 ```
 
 ## Features
