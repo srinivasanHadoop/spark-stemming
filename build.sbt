@@ -4,11 +4,15 @@ organization := "com.github.master"
 
 spName := "master/spark-stemming"
 
-version := "0.1.1"
+version := "0.1.2"
 
 sparkVersion := "1.6.0"
 
 scalaVersion := "2.10.5"
+
+crossScalaVersions := Seq("2.10.5", "2.11.7")
+
+spAppendScalaVersion := true
 
 spShortDescription := "Spark MLlib wrapper around Snowball stemming"
 
