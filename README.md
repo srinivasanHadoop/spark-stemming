@@ -52,6 +52,7 @@ Currently implemented algorithms:
  * Danish
 * Russian
 * Finnish
+* Greek
 
 More details are on the [Snowball stemming algorithms](http://snowballstem.org/algorithms/) page.
 

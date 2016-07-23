@@ -6,15 +6,15 @@ spName := "master/spark-stemming"
 
 version := "0.1.2"
 
-sparkVersion := "1.6.0"
+sparkVersion := "1.6.1"
 
-scalaVersion := "2.10.5"
+scalaVersion := "2.10.6"
 
-crossScalaVersions := Seq("2.10.5", "2.11.7")
+crossScalaVersions := Seq("2.10.6", "2.11.8")
 
 spAppendScalaVersion := true
 
-spShortDescription := "Spark MLlib wrapper around Snowball stemming"
+spShortDescription := "Spark MLlib wrapper for the Snowball framework"
 
 spDescription := """Snowball is a small string processing language
                     | designed for creating stemming algorithms for
@@ -23,11 +23,15 @@ spDescription := """Snowball is a small string processing language
 
 licenses := Seq("BSD 2-Clause" -> url("https://opensource.org/licenses/BSD-2-Clause"))
 
+spDistDirectory := target.value
+
 sparkComponents ++= Seq("mllib", "sql")
 
 parallelExecution := false
 
 credentials += Credentials(Path.userHome / ".sbt" / "sparkpkg-credentials")
 
-libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.5" % Test
+libraryDependencies ++= Seq(
+  "com.novocode" % "junit-interface" % "0.11" % "test",
+  "org.scalatest" %% "scalatest" % "2.1.5" % "test"
+)
