@@ -1,6 +1,14 @@
-# Spark Stemming
+# Spark Stemming Fork
 
-[![Build Status](https://travis-ci.org/master/spark-stemming.svg?branch=master)](https://travis-ci.org/master/spark-stemming)
+A fork to update to Spark 2.2 and operate on Array(StringType) input rather than only string input.  That is, this fork fixes:
+
+```
+java.lang.IllegalArgumentException: requirement failed: Input type must be string type but got ArrayType(StringType,true)
+```
+
+Maven and SBT probably won't work as described in the README below but you should be able to compile this locally.
+
+== original README ==
 
 [Snowball](http://snowballstem.org/) is a small string processing language
 designed for creating stemming algorithms for use in Information Retrieval.
