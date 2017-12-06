@@ -35,6 +35,7 @@ $ bin/spark-shell --packages master:spark-stemming_2.10:0.1.2
 
 Currently implemented algorithms:
 
+* Arabic
 * English
 * English (Porter)
 * Romance stemmers:
