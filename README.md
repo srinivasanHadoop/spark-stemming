@@ -12,7 +12,7 @@ Pipeline](https://spark.apache.org/docs/latest/ml-guide.html) API.
 Link against this library using SBT:
 
 ```
-libraryDependencies += "master" %% "spark-stemming" % "0.1.2"
+libraryDependencies += "master" %% "spark-stemming" % "0.2.0"
 ```
 
 Using Maven:
@@ -28,7 +28,7 @@ Using Maven:
 Or include it when starting the Spark shell:
 
 ```
-$ bin/spark-shell --packages master:spark-stemming_2.10:0.1.2
+$ bin/spark-shell --packages master:spark-stemming_2.10:0.2.0
 ```
 
 ## Features
