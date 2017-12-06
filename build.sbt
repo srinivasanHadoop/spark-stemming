@@ -29,9 +29,29 @@ sparkComponents ++= Seq("mllib", "sql")
 
 parallelExecution := false
 
-credentials += Credentials(Path.userHome / ".sbt" / "sparkpkg-credentials")
+spIncludeMaven := true
 
 libraryDependencies ++= Seq(
   "com.novocode" % "junit-interface" % "0.11" % "test",
   "org.scalatest" %% "scalatest" % "2.1.5" % "test"
+)
+
+sonatypeProfileName := "com.master.github"
+
+publishMavenStyle := true
+
+homepage := Some(url("https://github.com/master/spark-stemming"))
+
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/master/spark-stemming"),
+    "scm:git@github.com:master/spark-stemming.git"
+  )
+)
+
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
 )
