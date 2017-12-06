@@ -12,8 +12,6 @@ scalaVersion := "2.10.6"
 
 crossScalaVersions := Seq("2.10.6", "2.11.8")
 
-spAppendScalaVersion := true
-
 spShortDescription := "Spark MLlib wrapper for the Snowball framework"
 
 spDescription := """Snowball is a small string processing language
