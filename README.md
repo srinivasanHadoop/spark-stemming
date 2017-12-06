@@ -38,18 +38,18 @@ Currently implemented algorithms:
 * English
 * English (Porter)
 * Romance stemmers:
- * French
- * Spanish
- * Portuguese
- * Italian
- * Romanian
+  * French
+  * Spanish
+  * Portuguese
+  * Italian
+  * Romanian
 * Germanic stemmers:
- * German
- * Dutch
+  * German
+  * Dutch
 * Scandinavian stemmers:
- * Swedish
- * Norwegian (Bokmål)
- * Danish
+  * Swedish
+  * Norwegian (Bokmål)
+  * Danish
 * Russian
 * Finnish
 * Greek
