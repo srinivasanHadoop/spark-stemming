@@ -21,7 +21,7 @@ Using Maven:
 <dependency>
     <groupId>master</groupId>
     <artifactId>spark-stemming_2.10</artifactId>
-    <version>0.1.2</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
