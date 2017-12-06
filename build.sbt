@@ -49,6 +49,10 @@ scmInfo := Some(
   )
 )
 
+developers := List(
+  Developer(id="master", name="Oleg Smirnov", email="oleg.smirnov@gmail.com", url=url("http://nord.org.ua"))
+)
+
 publishTo := Some(
   if (isSnapshot.value)
     Opts.resolver.sonatypeSnapshots
