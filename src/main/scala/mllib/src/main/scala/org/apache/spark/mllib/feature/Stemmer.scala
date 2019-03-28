@@ -37,12 +37,11 @@ class Stemmer(override val uid: String)
     if ($(splitToken)) {
       strArray.map(originStr => {
         originStr.split(" ").map {tok => 
-        //  stemmer.setCurrent(tok)
-        //  stemmer.stem()
-        //  stemmer.getCurrent
-        tok
+          stemmer.setCurrent(tok)
+          stemmer.stem()
+          stemmer.getCurrent
         }.filter(_.length >= $(minLen)).mkString(" ")
-      })
+      }).filter(_.length > 0) // Filter any empty strings, after all this cleanup.
     } else {
       strArray.map(originStr => {
           stemmer.setCurrent(originStr)
