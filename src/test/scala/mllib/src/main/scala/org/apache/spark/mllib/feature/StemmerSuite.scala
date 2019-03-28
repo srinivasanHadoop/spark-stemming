@@ -43,4 +43,26 @@ class StemmerSuite extends FunSuite with LocalSparkContext {
 
     assert(stemmed.collect().deep == expected.collect().deep)
   }
+
+  test("Stem subtokens") {
+    val data = sqlContext.createDataFrame(Seq(
+      (Array("All", "mimsy"), 1),
+      (Array("were", "the", "borogroves"), 2)
+    )).toDF("word", "id")
+
+    val stemmed = new Stemmer()
+      .setInputCol("word")
+      .setOutputCol("stemmed")
+      .setSplitToken(true)
+      .transform(data)
+
+    stemmed.show()
+
+    val expected = sqlContext.createDataFrame(Seq(
+      (Array("All", "mimsy"), 1, Array("All", "mimsi")),
+      (Array("were", "the", "borogroves"), 2, Array("were", "the", "borogrov"))
+    )).toDF("word", "id", "stemmed")
+
+    assert(stemmed.collect().deep == expected.collect().deep)
+  }
 }
