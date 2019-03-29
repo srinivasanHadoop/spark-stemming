@@ -24,10 +24,10 @@ class Stemmer(override val uid: String)
   def setSplitToken(value: Boolean): this.type = set(splitToken, value)
   setDefault(splitToken -> false)
 
-  val minLen: IntParam = new IntParam(this, "minLen", "Strip away words if min len of token is lower than given size; default 3")
+  val minLen: IntParam = new IntParam(this, "minLen", "Strip away words if min len of token is lower than given size; default 2")
   def getMinLen: Int = $(minLen)
   def setMinLen(value: Int): this.type = set(minLen, value)
-  setDefault(minLen -> 3)
+  setDefault(minLen -> 2)
 
   override protected def createTransformFunc: Seq[String] => Seq[String] = { strArray =>
     val stemClass = Class.forName("org.tartarus.snowball.ext." + $(language).toLowerCase + "Stemmer")
@@ -47,7 +47,7 @@ class Stemmer(override val uid: String)
           stemmer.setCurrent(originStr)
           stemmer.stem()
           stemmer.getCurrent
-      })
+      }).filter(_.length >= $(minLen))
     }
   }
 

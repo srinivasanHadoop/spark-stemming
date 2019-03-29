@@ -5,18 +5,21 @@ import org.scalatest.FunSuite
 class StemmerSuite extends FunSuite with LocalSparkContext {
   test("Stemming of English words") {
     val data = sqlContext.createDataFrame(Seq(
-      (Array("All", "mimsy"), 1),
-      (Array("were", "the", "borogroves"), 2)
+      (Array("All", "is", "mimsy"), 1),
+      (Array("were", "the", "borogroves"), 2),
+      (Array("I", "used", "to", "like", "this"), 3)
     )).toDF("word", "id")
 
+    //minLen = 2 and subTokenSplit = false as default.
     val stemmed = new Stemmer()
       .setInputCol("word")
       .setOutputCol("stemmed")
       .transform(data)
 
     val expected = sqlContext.createDataFrame(Seq(
-      (Array("All", "mimsy"), 1, Array("All", "mimsi")),
-      (Array("were", "the", "borogroves"), 2, Array("were", "the", "borogrov"))
+      (Array("All", "is", "mimsy"), 1, Array("All", "is", "mimsi")),
+      (Array("were", "the", "borogroves"), 2, Array("were", "the", "borogrov")),
+      (Array("I", "used", "to", "like", "this"), 3, Array("use", "to", "like", "this"))
     )).toDF("word", "id", "stemmed")
 
     assert(stemmed.collect().deep == expected.collect().deep)
