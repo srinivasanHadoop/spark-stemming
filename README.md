@@ -57,7 +57,7 @@ Currently implemented algorithms:
 
 More details are on the [Snowball stemming algorithms](http://snowballstem.org/algorithms/) page.
 
-## Usage
+## Usage in scala
 
 `Stemmer`
 [Transformer](https://spark.apache.org/docs/latest/ml-guide.html#transformers)
@@ -80,4 +80,21 @@ val stemmed = new Stemmer()
   .transform(data)
 
 stemmed.show
+```
+
+## Usage in PySpark
+1. Build a jar using SBT build tool.
+2. Include it in the driver classpath for example using --driver-class-path argument for PySpark shell / spark-submit. Depending on the exact code you may have to pass it using --jars as well
+
+
+```python
+def stemmer(sc,df):
+    # Extract JVM instance from a Python SparkContext instance & Create Stemmer class
+    trans=sc._jvm.org.apache.spark.mllib.feature.Stemmer()
+    return trans.setInputCol("word")
+      .setOutputCol("stemmed")
+      .setSplitToken(true)
+      .setMinLen(4)
+      # Extract Java DataFrame from the df
+      .transform(df._jdf)
 ```
